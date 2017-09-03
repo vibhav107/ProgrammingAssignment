@@ -1,0 +1,21 @@
+﻿@import url(font-awesome.min.css);
+
+body {
+}
+
+label.error_msg, label.error
+{
+    color: Red;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.dataTables_length
+{
+    float:left;
+}
+
+.slider
+{
+    margin-bottom:20px;
+}
