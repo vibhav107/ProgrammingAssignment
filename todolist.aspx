@@ -143,6 +143,7 @@
                 $("#txtDueDate").val("");
                 $("#ddlSelectPriority").val("");
                 $("#saveToDo").val("Save");
+                $("#hdnIsEditMode").val("false");
                 $("#lineModalLabel").text("Add a to-do");
             });
 
