@@ -75,6 +75,7 @@
 
             }
 
+            //Form validation
             $("form").validate({
                 rules: {
                     txtTaskText: "required",
@@ -89,6 +90,7 @@
                 errorClass: "error_msg"
             });
 
+            //trigger this event user deselect any to-do item
             todolistTable.on('deselect', function (e, dt, type, indexes) {
                 disableButtons();
             });
@@ -105,6 +107,7 @@
                 $("#completedToDo").removeAttr('data-target');
             }
 
+            //trigger this event user select any to-do item
             todolistTable.on('select', function (e, dt, type, indexes) {
                 if (type === 'row') {
                     //var data = table.rows(indexes).data().pluck('id');
@@ -122,6 +125,7 @@
                 }
             });
 
+            //trigger this click event when user press edit butonn to update selected to-do item
             $("#editToDo").click(function () {
                 var data = todolistTable.rows({ selected: true }).data();
                 var row_id = todolistTable.row(todolistTable.rows({ selected: true })).index();
@@ -147,6 +151,7 @@
                 $("#lineModalLabel").text("Add a to-do");
             });
 
+            //trigger this click event when user wants to delete selected to-do item
             $('#deleteToDoRecord').click(function () {
                 var data = todolistTable.rows({ selected: true }).data();
                 var row_id = todolistTable.row(todolistTable.rows({ selected: true })).index();
@@ -160,6 +165,7 @@
                 disableButtons();
             });
 
+            //trigger this click event when user wants to mark selected to-do item as completed
             $('#completeToDoRecord').click(function () {
                 var data = todolistTable.rows({ selected: true }).data();
                 var row_id = todolistTable.row(todolistTable.rows({ selected: true })).index();
@@ -173,7 +179,7 @@
                 disableButtons();
             });
 
-
+            //function perform to delete/complete to-do item
             function DeleteOrMarkedCompletedToDo(operation, taskId) {
                 $.ajax({
                     type: "POST",
